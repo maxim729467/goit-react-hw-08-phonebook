@@ -41,7 +41,7 @@ export default function UserPage() {
       return;
     }
 
-    dispatch(fetchContacts(token, abortOptions));
+    dispatch(fetchContacts(token);
   }, [dispatch, isLoggedIn, token]);
 
   const filteredContacts = getFilteredContacts(state);
