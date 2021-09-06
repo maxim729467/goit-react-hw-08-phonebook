@@ -12,12 +12,12 @@ const setToken = (token) => {
 export const errorNotice = () =>
   toast.error("The request couldn't be processed.");
 
-export const fetchContacts = (token, abortOptions) => (dispatch) => {
+export const fetchContacts = (token) => (dispatch) => {
   setToken(token);
   dispatch(actions.fetchContactsRequest());
 
   axios
-    .get("/contacts", abortOptions)
+    .get("/contacts")
     .then((response) => {
       dispatch(actions.fetchContactsSuccess(response.data));
     })
