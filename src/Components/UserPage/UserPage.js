@@ -41,23 +41,7 @@ export default function UserPage() {
       return;
     }
 
-    const CancelToken = axios.CancelToken;
-    let cancel;
-
-    // const abortCtrl = new AbortController();
-    const abortOptions = {
-      cancelToken: new CancelToken(function executor(c) {
-        cancel = c;
-      }),
-    };
-
     dispatch(fetchContacts(token, abortOptions));
-
-    return () => {
-      console.log("aborted function");
-      // abortCtrl.abort();
-      cancel();
-    };
   }, [dispatch, isLoggedIn, token]);
 
   const filteredContacts = getFilteredContacts(state);
